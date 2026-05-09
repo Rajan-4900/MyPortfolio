@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import LazyImage from '../ui/LazyImage';
 
 const featuredProjects = [
   {
@@ -68,7 +69,7 @@ const FeaturedProjectsPreview = () => {
             {/* Image Container with Hover Scale */}
             <div className="relative h-64 overflow-hidden">
               <div className="absolute inset-0 bg-[#0F172A]/40 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
-              <img 
+              <LazyImage 
                 src={project.image} 
                 alt={project.title} 
                 className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"

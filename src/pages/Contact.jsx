@@ -1,4 +1,5 @@
 import PageTransition from '../animations/PageTransition';
+import SEOProvider from '../components/seo/SEOProvider';
 import ContactHero from '../components/contact/ContactHero';
 import ContactInfo from '../components/contact/ContactInfo';
 import ContactForm from '../components/contact/ContactForm';
@@ -9,6 +10,10 @@ import CollaborationCTA from '../components/contact/CollaborationCTA';
 const Contact = () => {
   return (
     <PageTransition>
+      <SEOProvider 
+        title="Contact Me" 
+        description="Get in touch for freelance work, job opportunities, or to discuss your next big project."
+      />
       <div className="flex flex-col min-h-screen">
         <ContactHero />
         

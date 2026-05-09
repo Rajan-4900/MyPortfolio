@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import LazyImage from '../ui/LazyImage';
 
 const FeaturedProjects = ({ projects, onProjectClick }) => {
   const featured = projects.filter(p => p.featured).slice(0, 2);
@@ -30,7 +31,7 @@ const FeaturedProjects = ({ projects, onProjectClick }) => {
             >
               <div className="relative rounded-2xl overflow-hidden glass-card border border-white/10 shadow-2xl transition-all duration-500 group-hover:border-white/20 group-hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] aspect-[16/10] md:aspect-[16/9]">
                 <div className="absolute inset-0 bg-[#0F172A]/40 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
-                <img 
+                <LazyImage 
                   src={project.image} 
                   alt={project.title} 
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"

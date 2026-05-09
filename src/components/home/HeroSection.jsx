@@ -61,13 +61,13 @@ const HeroSection = () => {
             </motion.div>
 
             <motion.div variants={itemVariants} className="flex items-center space-x-5 pt-8">
-              <a href="#" className="text-slate-400 hover:text-white transition-colors p-2 hover:bg-white/5 rounded-full">
+              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile" className="text-slate-400 hover:text-white transition-colors p-2 hover:bg-white/5 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500/50">
                 <FaGithub size={24} />
               </a>
-              <a href="#" className="text-slate-400 hover:text-white transition-colors p-2 hover:bg-white/5 rounded-full">
+              <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn" className="text-slate-400 hover:text-white transition-colors p-2 hover:bg-white/5 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500/50">
                 <FaLinkedin size={24} />
               </a>
-              <a href="#" className="text-slate-400 hover:text-white transition-colors p-2 hover:bg-white/5 rounded-full">
+              <a href="mailto:your@email.com" aria-label="Send me an email" className="text-slate-400 hover:text-white transition-colors p-2 hover:bg-white/5 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500/50">
                 <FaEnvelope size={24} />
               </a>
             </motion.div>

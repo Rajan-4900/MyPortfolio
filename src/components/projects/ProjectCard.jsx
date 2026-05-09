@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import LazyImage from '../ui/LazyImage';
 
 const ProjectCard = ({ project, onClick }) => {
   return (
@@ -15,11 +16,10 @@ const ProjectCard = ({ project, onClick }) => {
       {/* Image Preview Container */}
       <div className="relative h-48 md:h-56 overflow-hidden bg-[#0F172A]">
         <div className="absolute inset-0 bg-blue-900/20 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
-        <img 
+        <LazyImage 
           src={project.image} 
           alt={project.title} 
           className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
-          loading="lazy"
         />
         <div className="absolute top-4 right-4 z-20 flex space-x-2">
           {project.github_url && (

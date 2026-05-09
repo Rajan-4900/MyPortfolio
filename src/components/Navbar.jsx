@@ -58,14 +58,16 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-1">
+        <nav className="hidden md:flex items-center space-x-1" aria-label="Main Navigation">
           {navLinks.map((link) => (
             <NavLink
               key={link.name}
               to={link.path}
+              aria-label={`Go to ${link.name} page`}
               className={({ isActive }) => `
                 relative px-4 py-2 text-sm font-medium transition-colors duration-200
                 ${isActive ? 'text-white' : 'text-slate-400 hover:text-white'}
+                focus:outline-none focus:ring-2 focus:ring-blue-500/50 rounded-lg
               `}
             >
               {({ isActive }) => (
@@ -89,15 +91,16 @@ const Navbar = () => {
           {user ? (
             <button
               onClick={handleLogout}
-              className="px-4 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 transition-colors border border-white/5"
+              aria-label="Logout from admin panel"
+              className="px-4 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 transition-colors border border-white/5 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
             >
               Logout
             </button>
           ) : (
             <Link
               to="/login"
-              className="p-2 rounded-full text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 transition-colors border border-white/5"
-              aria-label="Login"
+              className="p-2 rounded-full text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 transition-colors border border-white/5 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+              aria-label="Login to admin dashboard"
             >
               <User size={18} />
             </Link>
@@ -106,8 +109,10 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 text-slate-400 hover:text-white"
+          className="md:hidden p-2 text-slate-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 rounded-lg"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-expanded={mobileMenuOpen}
+          aria-label={mobileMenuOpen ? "Close mobile menu" : "Open mobile menu"}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>

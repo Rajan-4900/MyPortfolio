@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaTimes, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import LazyImage from '../ui/LazyImage';
 
 const ProjectModal = ({ project, isOpen, onClose }) => {
   if (!isOpen || !project) return null;
@@ -35,7 +36,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
           <div className="overflow-y-auto custom-scrollbar">
             {/* Modal Hero Image */}
             <div className="relative h-64 sm:h-80 w-full bg-[#0F172A]">
-              <img 
+              <LazyImage 
                 src={project.image} 
                 alt={project.title} 
                 className="w-full h-full object-cover"

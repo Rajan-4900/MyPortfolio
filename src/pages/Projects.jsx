@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import PageTransition from '../animations/PageTransition';
+import SEOProvider from '../components/seo/SEOProvider';
 import ProjectsHero from '../components/projects/ProjectsHero';
 import FeaturedProjects from '../components/projects/FeaturedProjects';
 import ProjectFilters from '../components/projects/ProjectFilters';
@@ -34,6 +35,10 @@ const Projects = () => {
 
   return (
     <PageTransition>
+      <SEOProvider 
+        title="Projects Portfolio" 
+        description="View my latest full stack web development projects, featuring real-world applications and open-source contributions."
+      />
       <div className="flex flex-col min-h-screen">
         <ProjectsHero />
         

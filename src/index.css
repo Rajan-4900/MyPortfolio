@@ -41,20 +41,37 @@
   
   /* Custom scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--background);
+    background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: #334155;
-    border-radius: 4px;
+    background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+    border-radius: 10px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #475569;
+    background: linear-gradient(to bottom, #2563eb, #7c3aed);
+  }
+
+  /* Selection color */
+  ::selection {
+    background: rgba(59, 130, 246, 0.3);
+    color: #fff;
   }
 }
 
 html {
   scroll-behavior: smooth;
+  @apply overflow-x-hidden;
 }
+
+body {
+  @apply overflow-x-hidden;
+}
+
+/* Custom Utilities for production polish */
+.blur-glow {
+  @apply absolute rounded-full blur-[100px] opacity-20 pointer-events-none;
+}
+
