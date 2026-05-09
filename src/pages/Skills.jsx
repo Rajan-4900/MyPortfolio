@@ -1,13 +1,25 @@
 import PageTransition from '../animations/PageTransition';
+import SkillsHero from '../components/skills/SkillsHero';
+import FrontendSkills from '../components/skills/FrontendSkills';
+import BackendSkills from '../components/skills/BackendSkills';
+import DatabaseSkills from '../components/skills/DatabaseSkills';
+import ToolsSection from '../components/skills/ToolsSection';
+import LearningProgress from '../components/skills/LearningProgress';
+import StackSummary from '../components/skills/StackSummary';
+import SkillsCTA from '../components/skills/SkillsCTA';
 
 const Skills = () => {
   return (
     <PageTransition>
-      <div className="py-12">
-        <h1 className="text-3xl font-bold mb-6">Skills & Technologies</h1>
-        <div className="glass-card rounded-2xl p-8">
-          <p className="text-slate-400">Skills section content will go here.</p>
-        </div>
+      <div className="flex flex-col">
+        <SkillsHero />
+        <FrontendSkills />
+        <BackendSkills />
+        <DatabaseSkills />
+        <ToolsSection />
+        <LearningProgress />
+        <StackSummary />
+        <SkillsCTA />
       </div>
     </PageTransition>
   );

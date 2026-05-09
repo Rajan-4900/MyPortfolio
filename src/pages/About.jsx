@@ -1,13 +1,23 @@
 import PageTransition from '../animations/PageTransition';
+import AboutHero from '../components/about/AboutHero';
+import BiographySection from '../components/about/BiographySection';
+import JourneyTimeline from '../components/about/JourneyTimeline';
+import StrengthsSection from '../components/about/StrengthsSection';
+import EducationSection from '../components/about/EducationSection';
+import ExperienceHighlights from '../components/about/ExperienceHighlights';
+import AboutCTA from '../components/about/AboutCTA';
 
 const About = () => {
   return (
     <PageTransition>
-      <div className="py-12">
-        <h1 className="text-3xl font-bold mb-6">About Me</h1>
-        <div className="glass-card rounded-2xl p-8">
-          <p className="text-slate-400">About section content will go here.</p>
-        </div>
+      <div className="flex flex-col">
+        <AboutHero />
+        <BiographySection />
+        <JourneyTimeline />
+        <StrengthsSection />
+        <EducationSection />
+        <ExperienceHighlights />
+        <AboutCTA />
       </div>
     </PageTransition>
   );
