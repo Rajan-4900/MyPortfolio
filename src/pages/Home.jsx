@@ -1,15 +1,19 @@
 import PageTransition from '../animations/PageTransition';
+import HeroSection from '../components/home/HeroSection';
+import StatsSection from '../components/home/StatsSection';
+import TechStackPreview from '../components/home/TechStackPreview';
+import FeaturedProjectsPreview from '../components/home/FeaturedProjectsPreview';
+import CTASection from '../components/home/CTASection';
 
 const Home = () => {
   return (
     <PageTransition>
-      <div className="py-12">
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-          Creative <span className="text-gradient">Developer</span>
-        </h1>
-        <p className="text-lg text-slate-400 max-w-2xl">
-          Building exceptional digital experiences with modern web technologies.
-        </p>
+      <div className="flex flex-col gap-8 md:gap-16">
+        <HeroSection />
+        <StatsSection />
+        <TechStackPreview />
+        <FeaturedProjectsPreview />
+        <CTASection />
       </div>
     </PageTransition>
   );
