@@ -4,16 +4,19 @@ import { BrowserRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import App from './App.jsx'
 import AnalyticsProvider from './components/seo/AnalyticsProvider'
+import ErrorBoundary from './components/ui/ErrorBoundary'
 import './index.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <HelmetProvider>
-      <BrowserRouter>
-        <AnalyticsProvider>
-          <App />
-        </AnalyticsProvider>
-      </BrowserRouter>
-    </HelmetProvider>
+    <ErrorBoundary>
+      <HelmetProvider>
+        <BrowserRouter>
+          <AnalyticsProvider>
+            <App />
+          </AnalyticsProvider>
+        </BrowserRouter>
+      </HelmetProvider>
+    </ErrorBoundary>
   </StrictMode>,
 )

@@ -1,7 +1,28 @@
 import { motion } from 'framer-motion';
 import { FaDownload, FaFilePdf } from 'react-icons/fa';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { supabase } from '../../services/supabase';
+import { toast } from 'react-hot-toast';
 
 const DownloadResume = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleDownload = async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    
+    if (!session) {
+      toast.error('Please sign in to download the resume');
+      navigate('/login', { state: { from: location } });
+      return;
+    }
+
+    // Replace with your actual resume URL
+    const resumeUrl = "/resume-placeholder.pdf"; 
+    window.open(resumeUrl, '_blank');
+    toast.success('Download started!');
+  };
+
   return (
     <section className="py-24 relative border-b border-white/5 flex justify-center">
       <motion.div 
@@ -23,7 +44,10 @@ const DownloadResume = () => {
             Download my complete curriculum vitae for a detailed look at my experience, skills, and academic background.
           </p>
           
-          <button className="inline-flex items-center justify-center px-8 py-4 font-bold text-white bg-gradient-to-r from-blue-600 to-violet-600 rounded-xl overflow-hidden shadow-lg shadow-blue-500/25 transition-transform hover:scale-105">
+          <button 
+            onClick={handleDownload}
+            className="inline-flex items-center justify-center px-8 py-4 font-bold text-white bg-gradient-to-r from-blue-600 to-violet-600 rounded-xl overflow-hidden shadow-lg shadow-blue-500/25 transition-transform hover:scale-105"
+          >
             <FaDownload className="mr-3" />
             Download Resume (PDF)
           </button>

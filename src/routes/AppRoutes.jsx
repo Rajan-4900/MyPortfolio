@@ -35,36 +35,34 @@ const AppRoutes = () => {
   const location = useLocation();
 
   return (
-    <ErrorBoundary>
+    <Suspense fallback={<PageLoader />}>
       <AnimatePresence mode="wait">
-        <Suspense fallback={<PageLoader />}>
-          <Routes location={location} key={location.pathname}>
-            {/* Public Routes */}
-            <Route path="/" element={<MainLayout />}>
-              <Route index element={<Home />} />
-              <Route path="about" element={<About />} />
-              <Route path="skills" element={<Skills />} />
-              <Route path="projects" element={<Projects />} />
-              <Route path="resume" element={<Resume />} />
-              <Route path="contact" element={<Contact />} />
-              <Route path="login" element={<Login />} />
-              <Route path="*" element={<NotFoundPage />} />
-            </Route>
+        <Routes location={location} key={location.pathname}>
+          {/* Public Routes */}
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="skills" element={<Skills />} />
+            <Route path="projects" element={<Projects />} />
+            <Route path="resume" element={<Resume />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="login" element={<Login />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
 
-            {/* Protected Admin Routes */}
-            <Route element={<ProtectedRoute />}>
-              <Route path="/admin" element={<AdminLayout />}>
-                <Route index element={<DashboardOverview />} />
-                <Route path="projects" element={<ProjectsManager />} />
-                <Route path="messages" element={<MessagesManager />} />
-                <Route path="resume" element={<ResumeManager />} />
-                <Route path="settings" element={<SettingsPanel />} />
-              </Route>
+          {/* Protected Admin Routes */}
+          <Route element={<ProtectedRoute />}>
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<DashboardOverview />} />
+              <Route path="projects" element={<ProjectsManager />} />
+              <Route path="messages" element={<MessagesManager />} />
+              <Route path="resume" element={<ResumeManager />} />
+              <Route path="settings" element={<SettingsPanel />} />
             </Route>
-          </Routes>
-        </Suspense>
+          </Route>
+        </Routes>
       </AnimatePresence>
-    </ErrorBoundary>
+    </Suspense>
   );
 };
 
