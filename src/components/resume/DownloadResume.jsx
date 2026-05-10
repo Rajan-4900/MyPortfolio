@@ -8,7 +8,15 @@ const DownloadResume = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleDownload = () => {
+  const handleDownload = async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    
+    if (!session) {
+      toast.error('Please sign in or sign up to download the resume');
+      navigate('/login', { state: { from: location } });
+      return;
+    }
+
     // Path to the actual resume file
     const resumeUrl = "/assets/Resume.pdf"; 
     window.open(resumeUrl, '_blank');

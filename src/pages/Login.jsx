@@ -3,13 +3,14 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Lock, Loader2, User, ArrowRight } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
+import { FcGoogle } from 'react-icons/fc';
 import { supabase } from '../services/supabase';
 import PageTransition from '../animations/PageTransition';
 import SEOProvider from '../components/seo/SEOProvider';
 import { toast } from 'react-hot-toast';
 
 const Login = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [authMode, setAuthMode] = useState('password'); // 'password', 'signup', 'magic-link'
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
@@ -31,7 +32,6 @@ const Login = () => {
 
     try {
       if (authMode === 'magic-link') {
-        // Passwordless Magic Link
         const { error } = await supabase.auth.signInWithOtp({
           email,
           options: {
@@ -41,7 +41,6 @@ const Login = () => {
         if (error) throw error;
         toast.success('Magic link sent! Check your email.');
       } else if (authMode === 'password') {
-        // Standard Sign In
         const { error } = await supabase.auth.signInWithPassword({
           email,
           password,
@@ -50,7 +49,6 @@ const Login = () => {
         toast.success('Successfully logged in!');
         navigate(from, { replace: true });
       } else {
-        // Sign Up
         const { error } = await supabase.auth.signUp({
           email,
           password,
@@ -69,7 +67,20 @@ const Login = () => {
     }
   };
 
-  const [authMode, setAuthMode] = useState('password'); // 'password', 'signup', 'magic-link'
+  const handleOAuth = async (provider) => {
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider,
+        options: {
+          redirectTo: window.location.origin + from,
+        }
+      });
+      if (error) throw error;
+    } catch (err) {
+      toast.error(err.message);
+    }
+  };
+
   return (
     <PageTransition className="flex items-center justify-center min-h-[calc(100vh-6rem)] py-12">
       <SEOProvider 
@@ -222,19 +233,29 @@ const Login = () => {
               )}
             </div>
             
-            {/* Optional Social Provider */}
             <div className="relative mt-8">
               <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-white/5"></div></div>
               <div className="relative flex justify-center text-xs uppercase"><span className="bg-[#111827] px-2 text-slate-500">Or continue with</span></div>
             </div>
 
-            <button
-              type="button"
-              className="mt-6 w-full flex items-center justify-center gap-3 px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-300 hover:bg-white/10 hover:text-white transition-all font-medium"
-            >
-              <FaGithub size={20} />
-              GitHub
-            </button>
+            <div className="grid grid-cols-2 gap-4 mt-6">
+              <button
+                type="button"
+                onClick={() => handleOAuth('google')}
+                className="flex items-center justify-center gap-3 px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-300 hover:bg-white/10 hover:text-white transition-all font-medium"
+              >
+                <FcGoogle size={20} />
+                Google
+              </button>
+              <button
+                type="button"
+                onClick={() => handleOAuth('github')}
+                className="flex items-center justify-center gap-3 px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-slate-300 hover:bg-white/10 hover:text-white transition-all font-medium"
+              >
+                <FaGithub size={20} />
+                GitHub
+              </button>
+            </div>
           </div>
         </motion.div>
       </div>
