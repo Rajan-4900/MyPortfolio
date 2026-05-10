@@ -1,8 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 
 const SEOProvider = ({ title, description, keywords, image, url }) => {
-  const siteName = "John Doe | Full Stack Developer";
-  const defaultDesc = "Premium Full Stack Developer Portfolio showcasing modern web applications, scalable architectures, and beautiful UI/UX design.";
+  const siteName = "Rajan L | Full Stack Developer";
+  const defaultDesc = "Professional Full Stack Developer Portfolio of Rajan L, specializing in modern React applications and scalable backend architectures.";
   const defaultImage = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop";
 
   return (

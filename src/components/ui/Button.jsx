@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 import { Loader2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Button = forwardRef(({ 
   children, 
@@ -8,6 +9,7 @@ const Button = forwardRef(({
   isLoading = false, 
   className = "", 
   disabled,
+  to,
   ...props 
 }, ref) => {
   
@@ -26,11 +28,26 @@ const Button = forwardRef(({
     lg: "px-8 py-4 text-lg",
   };
 
+  const combinedClassName = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
+
+  if (to) {
+    return (
+      <Link
+        ref={ref}
+        to={to}
+        className={combinedClassName}
+        {...props}
+      >
+        {children}
+      </Link>
+    );
+  }
+
   return (
     <button
       ref={ref}
       disabled={isLoading || disabled}
-      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
+      className={combinedClassName}
       {...props}
     >
       {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}

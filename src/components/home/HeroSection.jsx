@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaEnvelope, FaArrowRight } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaArrowRight } from 'react-icons/fa';
 import Button from '../ui/Button';
 
 const HeroSection = () => {
@@ -27,9 +27,9 @@ const HeroSection = () => {
 
       <div className="w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
+
           {/* Left Content */}
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -41,47 +41,50 @@ const HeroSection = () => {
             </motion.div>
 
             <motion.h1 variants={itemVariants} className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
-              Building Modern <br className="hidden md:block" />
-              <span className="text-gradient">Full Stack Web</span> <br className="hidden md:block" />
-              Experiences
+              Rajan L
             </motion.h1>
+
+            <motion.h3 variants={itemVariants} className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-200 leading-[1.2]">
+              Building Modern <br className="hidden md:block" />
+              <span className="text-gradient">Full Stack Web</span> Experiences
+            </motion.h3>
 
             <motion.p variants={itemVariants} className="text-lg md:text-xl text-slate-400 max-w-xl leading-relaxed">
               I engineer scalable, high-performance web applications with a focus on elegant UI/UX design and robust backend architectures. Turning complex problems into intuitive digital solutions.
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-4">
-              <Button size="lg" className="group">
-                View Projects 
+              <Button to="/projects" size="lg" className="group">
+                View Projects
                 <FaArrowRight className="ml-2 inline-block transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button size="lg" variant="secondary">
+              <Button to="/contact" size="lg" variant="secondary">
                 Contact Me
               </Button>
             </motion.div>
 
             <motion.div variants={itemVariants} className="flex items-center space-x-5 pt-8">
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile" className="text-slate-400 hover:text-white transition-colors p-2 hover:bg-white/5 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500/50">
+              <a href="https://github.com/Rajan-4900" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile" className="text-slate-400 hover:text-white transition-colors p-2 hover:bg-white/5 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500/50">
                 <FaGithub size={24} />
               </a>
-              <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn" className="text-slate-400 hover:text-white transition-colors p-2 hover:bg-white/5 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500/50">
+              <a href="https://www.linkedin.com/in/rajan-l/" target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn" className="text-slate-400 hover:text-white transition-colors p-2 hover:bg-white/5 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500/50">
                 <FaLinkedin size={24} />
               </a>
-              <a href="mailto:your@email.com" aria-label="Send me an email" className="text-slate-400 hover:text-white transition-colors p-2 hover:bg-white/5 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500/50">
-                <FaEnvelope size={24} />
+              <a href="https://x.com/rajan91480" target="_blank" rel="noopener noreferrer" aria-label="Follow me on X (Twitter)" className="text-slate-400 hover:text-white transition-colors p-2 hover:bg-white/5 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500/50">
+                <FaTwitter size={24} />
               </a>
             </motion.div>
           </motion.div>
 
           {/* Right Visual */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             className="relative hidden lg:block h-[500px] w-full"
           >
             {/* Abstract Decorative Editor Mockup */}
-            <motion.div 
+            <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="absolute inset-0 glass-card rounded-2xl border border-white/10 overflow-hidden shadow-2xl"
@@ -118,9 +121,9 @@ const HeroSection = () => {
                 <div className="text-blue-400">export default <span className="text-yellow-200">Developer</span>;</div>
               </div>
             </motion.div>
-            
+
             {/* Floating abstract elements */}
-            <motion.div 
+            <motion.div
               animate={{ y: [0, 15, 0], rotate: [0, 5, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               className="absolute -bottom-8 -left-8 w-24 h-24 bg-gradient-to-tr from-blue-500 to-violet-500 rounded-2xl opacity-20 blur-xl"

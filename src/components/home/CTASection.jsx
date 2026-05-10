@@ -40,12 +40,6 @@ const CTASection = () => {
                 </span>
               </Link>
               
-              <a 
-                href="mailto:contact@example.com" 
-                className="inline-flex items-center justify-center px-8 py-4 font-medium text-slate-300 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:text-white transition-colors w-full sm:w-auto"
-              >
-                Email Me
-              </a>
             </div>
           </div>
         </div>

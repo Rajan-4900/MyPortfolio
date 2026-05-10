@@ -21,8 +21,8 @@ const mockProjects = [
     description: 'An interactive learning platform with spaced repetition flashcards, progress tracking, and AI-generated study guides.',
     image: 'https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?q=80&w=2070&auto=format&fit=crop',
     technologies: ['React', 'Firebase', 'Framer Motion', 'Tailwind CSS'],
-    github_url: 'https://github.com',
-    live_demo_url: 'https://example.com',
+    github_url: 'https://github.com/Rajan-4900/FlashCard_Study_Tool_GenAI_Project.git',
+    live_demo_url: 'https://study-flashcards-game.vercel.app',
     category: 'Frontend',
     featured: true,
     created_at: '2024-02-20T00:00:00Z'

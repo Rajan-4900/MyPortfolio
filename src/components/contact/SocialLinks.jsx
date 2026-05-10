@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter, FaDribbble } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const socialLinks = [
-  { icon: FaGithub, url: "https://github.com", name: "GitHub", color: "hover:text-white hover:bg-[#333]" },
-  { icon: FaLinkedin, url: "https://linkedin.com", name: "LinkedIn", color: "hover:text-white hover:bg-[#0077b5]" },
-  { icon: FaTwitter, url: "https://twitter.com", name: "Twitter", color: "hover:text-white hover:bg-[#1DA1F2]" },
-  { icon: FaDribbble, url: "https://dribbble.com", name: "Dribbble", color: "hover:text-white hover:bg-[#ea4c89]" }
+  { icon: FaGithub, url: "https://github.com/Rajan-4900", name: "GitHub", color: "hover:text-white hover:bg-[#333]" },
+  { icon: FaLinkedin, url: "https://www.linkedin.com/in/rajan-l/", name: "LinkedIn", color: "hover:text-white hover:bg-[#0077b5]" },
+  { icon: FaTwitter, url: "https://x.com/rajan91480", name: "Twitter", color: "hover:text-white hover:bg-[#1DA1F2]" }
 ];
 
 const SocialLinks = () => {
